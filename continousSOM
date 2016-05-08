@@ -55,7 +55,7 @@ class SOM(object):
             #print("pack: ", tf.pack([[pivot[0], 0], [pivot[1], 0]]))
             slice = tf.slice(tensor, pivot, tf.pack([n-pivot[0], m-pivot[1]])) 
             slice = tf.reverse(slice, [True, True])
-            slice = tf.pad(slice, tf.constant([[pivot[0], 0], [pivot[1], 0]]))
+            slice = tf.pad(slice, [[pivot[0], 0], [pivot[1], 0]])
             return slice
         
         def top_right(tensor, pivot):
