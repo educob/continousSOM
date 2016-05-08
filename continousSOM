@@ -237,17 +237,18 @@ class SOM(object):
         for iter_no in range(self._n_iterations):
             #Train with each vector one by one
             for input_vect in input_vects:
-                _, bmu_index, dist_2, bmu_loc, lr, pedo, pedo2, pedo3 = self._sess.run([self._training_op, self.bmu_index, self.bmu_distance_squares, self.bmu_loc, 
-                                                self.learning_rate_op, self.pedo, self.pedo2, self.pedo3],
+                _, bmu_index, dist_2, bmu_loc, lr = self._sess.run([self._training_op, self.bmu_index, self.bmu_distance_squares, self.bmu_loc, 
+                                                self.learning_rate_op],
                                feed_dict={self._vect_input: input_vect,
                                           self._iter_input: iter_no})
                 if(count==0):
                   #  print("bmu_index: ", type(bmu_index))
                   #  print("bmu_loc: ", bmu_loc[1])
                   #  print("lr: ", lr)
-                  #  print(self.learning_rate_op)
+                  print(self.learning_rate_op)
                     
                 count += 1
+                    
         #Store a centroid grid for easy retrieval later on
         centroid_grid = [[] for i in range(self._m)]
         self._weightages = list(self._sess.run(self._weightage_vects))
