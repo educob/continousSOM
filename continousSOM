@@ -48,11 +48,6 @@ class SOM(object):
         # 
         def top_left(tensor, pivot):
             pivot = pivot*2
-            self.pedo = pivot
-            self.pedo2 = pivot[0]
-            self.pedo3 = 3 #tf.less(m, tf.unpack(pivot[1]))
-            print("to int: ", tf.constant([2, 0]))
-            #print("pack: ", tf.pack([[pivot[0], 0], [pivot[1], 0]]))
             slice = tf.slice(tensor, pivot, tf.pack([n-pivot[0], m-pivot[1]])) 
             slice = tf.reverse(slice, [True, True])
             slice = tf.pad(slice, [[pivot[0], 0], [pivot[1], 0]])
