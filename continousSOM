@@ -246,9 +246,6 @@ class SOM(object):
                   #  print("bmu_loc: ", bmu_loc[1])
                   #  print("lr: ", lr)
                   #  print(self.learning_rate_op)
-                  print("pivot: ", pedo)
-                  print("pivot0: ", pedo2)
-                  print("pivot1: ", pedo3)
                     
                 count += 1
         #Store a centroid grid for easy retrieval later on
